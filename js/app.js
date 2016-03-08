@@ -1,4 +1,5 @@
 // Enemies our player must avoid
+// Enemies our player must avoid
 var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -13,8 +14,9 @@ var Enemy = function() {
 };
 
 Enemy.prototype.collisions = function(object) {
-    return (this.x < object.x + object.w  && this.x + this.w  > object.x &&
-        this.y < object.y + object.h && this.y + this.h > object.y); 
+    if (this.x === object.x && this.y === object.y) {
+        return true;
+    }
 };
 
 
@@ -63,6 +65,7 @@ Player.prototype.reset = function(){
 Player.prototype.update = function(dt) {
     if(this.y < 10){
         player.reset();
+        alert("Ganaste!, presiona 'OK' para volver a jugar");
     }
     
 };
